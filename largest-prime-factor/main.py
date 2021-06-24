@@ -1,3 +1,5 @@
+import math
+
 def primes(number):
     matrix = list(range(2, number + 1))
     blacklist = list()
@@ -19,6 +21,16 @@ def highestPrimeFactor(number):
             break
     return largest
 
+def primeFactors(n: int):
+    while n % 2 == 0:
+        print("2, ")
+        n /= 2
+    for i in range(3, int(math.sqrt(n)), 2):
+        if n % i == 0:
+            n /= i
+            print("{}, ".format(i))
+
 number = 600851475143
 #number = 13195
-print("largest: {}".format(highestPrimeFactor(number)))
+#print("largest: {}".format(highestPrimeFactor(number)))
+primeFactors(number)
